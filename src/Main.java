@@ -1,3 +1,4 @@
+import javax.xml.crypto.Data;
 import java.util.Scanner;
 
 public class Main {
@@ -8,15 +9,16 @@ public class Main {
 
         database = new Database();
         scanner = new Scanner(System.in);
-        System.out.println(UserDatabase.getAllVisitors(database));
         System.out.println("1. Sign in");
         System.out.println("2. Sign up");
         int i = scanner.nextInt();
         switch (i){
             case 1:
                 signIn();
+                break;
             case 2:
                 signUp();
+                break;
             default:
                 System.out.println("Invalid number");
                 break;
@@ -27,7 +29,18 @@ public class Main {
         System.out.println("Enter your email or login:");
         String emailOrLogin = scanner.next();
         System.out.println("Enter your password:");
-        String email = scanner.next();
+        String password = scanner.next();
+
+        if (UserDatabase.login(emailOrLogin,password,database)){
+            User user = UserDatabase.getUser(emailOrLogin, database);
+            user.showList();
+        } else {
+            System.out.println("Incorrect values");
+        }
+
+
+
+
     }
 
     private static void signUp(){
@@ -72,6 +85,8 @@ public class Main {
         visitor.setLogin(login);
         visitor.setPassword(password);
         UserDatabase.addVisitor(visitor,database);
+
+        signIn();
 
 
 

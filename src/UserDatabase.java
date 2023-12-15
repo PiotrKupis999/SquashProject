@@ -10,7 +10,7 @@ public class UserDatabase {
         try{
             ResultSet rs = database.getStatement().executeQuery("SELECT `ID`, `firstName`," +
                     "`lastName`, `phoneNumber`, `email`, `login`," +
-                    "`password` FROM `visitors` WHERE `email` OR `login` = '"+emailOrLogin+"';");
+                    "`password` FROM `visitors` WHERE `email`= '"+emailOrLogin+"' OR `login` = '"+emailOrLogin+"';");
             isUsed = rs.next() ;
         } catch (Exception e){
             e.printStackTrace();
@@ -61,4 +61,37 @@ public class UserDatabase {
             e.printStackTrace();
         }
     }
+
+    public static boolean login(String emailOrLogin, String password, Database database){
+        try {
+            ResultSet rs = database.getStatement().executeQuery("SELECT * FROM `visitors` WHERE `email`= '"+emailOrLogin+"' OR `login` = '"+emailOrLogin+"';");
+            while (rs.next()){
+                if ((rs.getString("login").equals(emailOrLogin) || rs.getString("email").equals(emailOrLogin))&&
+                        (rs.getString("password").equals(password))){
+                    return true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static User getUser(String emailOrLogin, Database database){
+        ArrayList<User> users = new ArrayList<>();
+        users.addAll(getAllVisitors(database));
+        for (User user : users){
+            if (user.getEmail().equals(emailOrLogin)||user.getLogin().equals(emailOrLogin)){
+                return user;
+            }
+        }
+        return null;
+    }
+
+    /*
+    public static Visitor getVisitorByLoginOrEmail(String loginOrEmail, Database database){
+        ResultSet rs = database.getStatement().executeQuery()
+    }
+
+     */
 }
