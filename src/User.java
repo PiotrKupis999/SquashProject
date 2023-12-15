@@ -1,7 +1,7 @@
 public class User {
     private int ID;
-    private String name;
-    private String secondName;
+    private String firstName;
+    private String lastName;
     private String phoneNumber;
     private String email;
     private String login;
@@ -35,20 +35,20 @@ public class User {
         return login;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String name) {
+        this.firstName = name;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getSecondName() {
-        return secondName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
+    public void setLastName(String secondName) {
+        this.lastName = secondName;
     }
 
     public void setPassword(String password) {
