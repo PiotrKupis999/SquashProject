@@ -32,7 +32,7 @@ public class Main {
 
         if (UserDatabase.login(emailOrLogin,password,database)){
             User user = UserDatabase.getUser(emailOrLogin, database);
-            user.showList();
+            user.showList(database);
         } else {
             System.out.println("Incorrect values");
         }

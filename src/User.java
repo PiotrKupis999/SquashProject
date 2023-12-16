@@ -1,4 +1,4 @@
-public class User {
+public abstract class User {
     private int ID;
     private String firstName;
     private String lastName;
@@ -9,9 +9,7 @@ public class User {
 
     public User(){}
 
-    public void showList(){
-        System.out.println("Hello " + login +"!");
-    }
+
 
     public void setID(int ID) {
         this.ID = ID;
@@ -68,5 +66,8 @@ public class User {
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
+    public abstract void showList(Database database);
+
 }
 

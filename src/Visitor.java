@@ -10,8 +10,7 @@ public class Visitor extends User {
     }
 
     @Override
-    public void showList() {
-        super.showList();
+    public void showList(Database database) {
         System.out.println("visitor");
     }
 
