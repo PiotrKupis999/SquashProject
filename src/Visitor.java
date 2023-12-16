@@ -11,7 +11,7 @@ public class Visitor extends User {
 
     @Override
     public void showList(Database database) {
-        System.out.println("visitor");
+        System.out.println("1. ");
     }
 
     public List<Booking> getBookings() {

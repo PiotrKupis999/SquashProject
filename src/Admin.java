@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Admin extends User{
@@ -44,7 +45,14 @@ public class Admin extends User{
             court.setID(CourtDatabase.newCourtID(database));
             court.setPlace(place);
             CourtDatabase.addNewCourt(court,database);
+            String tableName = "court"+court.getID();
+            try {
+                database.getStatement().execute("CREATE TABLE "+tableName+" (ID int, date date, startTime time,hours int);");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
+
 
     }
 }
