@@ -11,15 +11,12 @@ public class User {
 
     }
 
+
     public void showList(){
-        System.out.println("ID: " + ID );
-        System.out.println("First name: " + firstName );
-        System.out.println("Last name: " +lastName );
-        System.out.println("Phone number: " +phoneNumber );
-        System.out.println("email: " + email );
-        System.out.println("login: " + login );
-        System.out.println("password: " + password);
+        System.out.println("Hello " + login +"!");
     }
+
+
 
     public void setID(int ID) {
         this.ID = ID;

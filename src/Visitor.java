@@ -9,6 +9,12 @@ public class Visitor extends User {
         super();
     }
 
+    @Override
+    public void showList() {
+        super.showList();
+        System.out.println("visitor");
+    }
+
     public List<Booking> getBookings() {
         return bookings;
     }

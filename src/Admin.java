@@ -14,4 +14,10 @@ public class Admin extends User{
     public void setCode(String code) {
         this.code = code;
     }
+
+    @Override
+    public void showList() {
+        super.showList();
+        System.out.println("admin");
+    }
 }
