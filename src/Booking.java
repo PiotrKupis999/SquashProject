@@ -6,12 +6,13 @@ import java.util.Date;
 public class Booking {
 
     private int ID;
+    private Court court;
     private LocalDate date;
     private LocalTime startTime;
     private long hours;
 
-    public Booking(){
-    }
+    public Booking(){}
+
 
     public int getID() {
         return ID;

@@ -9,6 +9,11 @@ public class Visitor extends User {
         super();
     }
 
+    @Override
+    public void showList(Database database) {
+        System.out.println("1. ");
+    }
+
     public List<Booking> getBookings() {
         return bookings;
     }

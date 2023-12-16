@@ -1,4 +1,4 @@
-public class User {
+public abstract class User {
     private int ID;
     private String firstName;
     private String lastName;
@@ -7,9 +7,9 @@ public class User {
     private String login;
     private String password;
 
-    public User(){
+    public User(){}
 
-    }
+
 
     public void setID(int ID) {
         this.ID = ID;
@@ -66,5 +66,8 @@ public class User {
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
+    public abstract void showList(Database database);
+
 }
 
