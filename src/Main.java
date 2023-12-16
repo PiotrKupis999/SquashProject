@@ -23,6 +23,7 @@ public class Main {
                 System.out.println("Invalid number");
                 break;
         }
+        main(null);
     }
     private static void signIn(){
         System.out.println("Enter your email or login:");
