@@ -4,12 +4,9 @@ import java.util.List;
 public class Court {
 
     private int ID;
-
     private ArrayList<Booking> bookings;
 
-    public Court(){
-
-    }
+    public Court(){}
 
     public int getID() {
         return ID;

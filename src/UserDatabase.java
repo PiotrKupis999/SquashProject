@@ -125,11 +125,4 @@ public class UserDatabase {
         }
         return null;
     }
-
-    /*
-    public static Visitor getVisitorByLoginOrEmail(String loginOrEmail, Database database){
-        ResultSet rs = database.getStatement().executeQuery()
-    }
-
-     */
 }

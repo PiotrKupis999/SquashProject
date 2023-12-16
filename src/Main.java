@@ -23,7 +23,6 @@ public class Main {
                 System.out.println("Invalid number");
                 break;
         }
-
     }
     private static void signIn(){
         System.out.println("Enter your email or login:");
@@ -37,10 +36,6 @@ public class Main {
         } else {
             System.out.println("Incorrect values");
         }
-
-
-
-
     }
 
     private static void signUp(){
@@ -87,20 +82,5 @@ public class Main {
         UserDatabase.addVisitor(visitor,database);
 
         signIn();
-
-
-
     }
-/*
-    private static boolean checkPasswords(){
-        System.out.println("Enter your password:");
-        String password = scanner.next();
-        System.out.println("Confirm your password:");
-        String password2 = scanner.next();
-
-        if (password.equals(password2)){return true;}
-        return false;
-    }
-
- */
 }

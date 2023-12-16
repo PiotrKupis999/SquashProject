@@ -10,8 +10,7 @@ public class Booking {
     private LocalTime startTime;
     private long hours;
 
-    public Booking(){
-    }
+    public Booking(){}
 
     public int getID() {
         return ID;

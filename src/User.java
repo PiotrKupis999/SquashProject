@@ -7,16 +7,11 @@ public class User {
     private String login;
     private String password;
 
-    public User(){
-
-    }
-
+    public User(){}
 
     public void showList(){
         System.out.println("Hello " + login +"!");
     }
-
-
 
     public void setID(int ID) {
         this.ID = ID;
