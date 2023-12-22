@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Visitor extends User {
 
@@ -11,7 +12,20 @@ public class Visitor extends User {
 
     @Override
     public void showList(Database database) {
-        System.out.println("1. ");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("1. Book a court");
+        int i = scanner.nextInt();
+        switch (i){
+            case 1:
+                //addCourt(database);
+                break;
+            case 2:
+                //signUp();
+                break;
+            default:
+                System.out.println("Invalid number");
+                break;
+        }
     }
 
     public List<Booking> getBookings() {
