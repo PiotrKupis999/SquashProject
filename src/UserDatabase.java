@@ -80,6 +80,8 @@ public class UserDatabase {
     }
 
     public static void addVisitor(Visitor visitor, Database database){
+
+        // adding new record for visitors table
         String sqlCode = "INSERT INTO `visitors`(`ID`, `firstName`, `lastName`, `phoneNumber`, `email`, `login`, `password`)" +
                 "VALUES ('"+visitor.getID()+"','"+visitor.getFirstName()+"','"+visitor.getLastName()+"','"+visitor.getPhoneNumber()+"'" +
                 ",'"+visitor.getEmail()+"','"+visitor.getLogin()+"','"+visitor.getPassword()+"');";
@@ -87,6 +89,13 @@ public class UserDatabase {
             database.getStatement().execute(sqlCode);
             System.out.println("User created");
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // creating new table for this visitor
+        String tableName = "visitor"+visitor.getID();
+        try {
+            database.getStatement().execute("CREATE TABLE "+tableName+" (ID int, courtID int, date date, startTime time,hours int);");
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

@@ -18,7 +18,7 @@ public class CourtDatabase {
         // creating new table for this court
         String tableName = "court"+court.getID();
         try {
-            database.getStatement().execute("CREATE TABLE "+tableName+" (ID int, date date, startTime time,hours int);");
+            database.getStatement().execute("CREATE TABLE "+tableName+" (ID int, visitorID int, date date, startTime time,hours int);");
         } catch (SQLException e) {
             e.printStackTrace();
         }
