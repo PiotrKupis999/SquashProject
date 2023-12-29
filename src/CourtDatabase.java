@@ -1,4 +1,5 @@
 import javax.xml.crypto.Data;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -6,10 +7,18 @@ import java.util.ArrayList;
 public class CourtDatabase {
 
     public static void addNewCourt(Court court, Database database){
+        // adding new record for courtDatabase
         String sqlCode = "INSERT INTO `courts`(`id`, `place`) VALUES ('"+court.getID()+"','"+court.getPlace()+"');";
         try {
             database.getStatement().execute(sqlCode);
             System.out.println("New court added");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        // creating new table for this court
+        String tableName = "court"+court.getID();
+        try {
+            database.getStatement().execute("CREATE TABLE "+tableName+" (ID int, visitorID int, date date, startTime time,hours int);");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -50,5 +59,30 @@ public class CourtDatabase {
         }
         return true;
     }
+
+    public static boolean deleteCourt(int ID, Database database){
+        // deleting record for courtDatabase
+        try {
+            ResultSet rs = database.getStatement().executeQuery("SELECT * FROM `courts` WHERE `ID` = "+ID+";");
+            if(rs.next()){
+                PreparedStatement ps = database.getConnection().prepareStatement("DELETE FROM `courts` WHERE ID = "+ID+";");
+                ps.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        // deleting court's table
+        String tableName = "court"+ID;
+        try {
+            database.getStatement().execute("DROP TABLE `squashdatabase`."+tableName+";");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public static void addBooking(){}
 
 }
